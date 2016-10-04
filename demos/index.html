@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Demo: Sticker</title>
+
+		<link rel="stylesheet" href="../node_modules/lexicon-ux/build/css/atlas-font-awesome.css">
+		<script src="../build/globals/sticker.js"></script>
+
+		<style>
+			body {
+				padding: 30px;
+			}
+
+			button {
+				position: relative;
+			}
+
+			label {
+				display: block;
+			}
+
+			span {
+				margin-right: 6px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Lexicon Sticker Component</h1>
+		<h2>Sticker Position</h2>
+		<div class="row">
+			<div class="col-md-2">
+				<div class="aspect-ratio">
+					<img alt="thumbnail" src="images/thumbnail.jpg">
+					<span class="sticker-position-example"></span>
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="aspect-ratio">
+					<img alt="thumbnail" src="images/thumbnail.jpg">
+					<span class="sticker-position-example-top-right"></span>
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="aspect-ratio">
+					<img alt="thumbnail" src="images/thumbnail.jpg">
+					<span class="sticker-position-example-bottom-left"></span>
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="aspect-ratio">
+					<img alt="thumbnail" src="images/thumbnail.jpg">
+					<span class="sticker-position-example-bottom-right"></span>
+				</div>
+			</div>
+		</div>
+		<h2>Sticker Outside</h2>
+		<div class="row">
+			<div class="col-md-1">
+				<button class="btn btn-primary">
+					Email
+					<span class="sticker-outside-example"></span>
+				</button>
+			</div>
+			<div class="col-md-1">
+				<button class="btn btn-primary">
+					Email
+					<span class="sticker-outside-example-top-right"></span>
+				</button>
+			</div>
+			<div class="col-md-1">
+				<button class="btn btn-primary">
+					Email
+					<span class="sticker-outside-example-bottom-left"></span>
+				</button>
+			</div>
+			<div class="col-md-1">
+				<button class="btn btn-primary">
+					Email
+					<span class="sticker-outside-example-bottom-right"></span>
+				</button>
+			</div>
+		</div>
+
+		<h2>Sticker static</h2>
+		<div class="sticker-static"></div>
+
+		<h2>Sticker sizes</h2>
+		<div class="sticker-sizes"></div>
+
+		<h2>Sticker Shapes</h2>
+		<div class="sticker-shapes"></div>
+
+		<script type="text/javascript">
+			//STICKER POSITION
+			new metal.LexiconSticker({
+				element: document.querySelector('.sticker-position-example'),
+				label: 'PDF',
+				level: 'danger'
+			});
+
+			new metal.LexiconSticker({
+				element: document.querySelector('.sticker-position-example-top-right'),
+				level: 'danger',
+				label: 'PDF',
+				position: 'top-right'
+			});
+
+			new metal.LexiconSticker({
+				element: document.querySelector('.sticker-position-example-bottom-left'),
+				level: 'danger',
+				label: 'PDF',
+				position: 'bottom-left'
+			});
+
+			new metal.LexiconSticker({
+				element: document.querySelector('.sticker-position-example-bottom-right'),
+				label: 'PDF',
+				level: 'danger',
+				position: 'bottom-right'
+			});
+
+			//STICKER OUTSIDE
+			new metal.LexiconSticker({
+				element: document.querySelector('.sticker-outside-example'),
+				level: 'warning',
+				label: '6',
+				outside: true
+			});
+
+			new metal.LexiconSticker({
+				element: document.querySelector('.sticker-outside-example-top-right'),
+				cssClass: 'sticker-warning sticker-outside sticker-top-right',
+				label: '6',
+				level: 'warning',
+				outside: true,
+				position: 'top-right'
+			});
+
+			new metal.LexiconSticker({
+				element: document.querySelector('.sticker-outside-example-bottom-left'),
+				label: '6',
+				level: 'warning',
+				outside: true,
+				position: 'bottom-left'
+			});
+
+			new metal.LexiconSticker({
+				element: document.querySelector('.sticker-outside-example-bottom-right'),
+				label: '6',
+				level: 'warning',
+				outside: true,
+				position: 'bottom-right'
+
+			});
+
+			//STICKER STATIC
+			var stickerStaticArea = document.querySelector('.sticker-static');
+
+			var STICKER_STATICS = [
+				{
+					label: '133',
+					static: true
+				},
+				{
+					label: '133',
+					level: 'danger',
+					static: true
+				},
+				{
+					label: '133',
+					level: 'info',
+					static: true
+				},
+				{
+					label: '133',
+					level: 'primary',
+					static: true
+				},
+				{
+					label: '133',
+					level: 'success',
+					static: true
+				},
+				{
+					label: '133',
+					level: 'warning',
+					static: true
+				},
+			];
+
+			STICKER_STATICS.forEach(function(sticker, index) {
+				var stickerElement = document.createElement('span');
+
+				stickerStaticArea.appendChild(stickerElement);
+
+				new metal.LexiconSticker({
+					element: stickerElement,
+					label: sticker.label,
+					level: sticker.level,
+					static: sticker.static
+				});
+			});
+
+			// STICKER SIZES
+			var stickerSizesArea = document.querySelector('.sticker-sizes');
+
+			var STICKER_SIZES = [
+				{
+					label: 'Sm',
+					size: 'sm',
+					static: true
+				},
+				{
+					label: 'Default',
+					level: 'primary',
+					static: true
+				},
+				{
+					label: 'Large',
+					level: 'success',
+					size: 'lg',
+					static: true
+				}
+			];
+
+			STICKER_SIZES.forEach(function(sticker, index) {
+				var stickerElement = document.createElement('span');
+
+				stickerSizesArea.appendChild(stickerElement);
+
+				new metal.LexiconSticker({
+					element: stickerElement,
+					label: sticker.label,
+					level: sticker.level,
+					size: sticker.size,
+					static: sticker.static
+				});
+			});
+
+			//STICKER SHAPES
+			var stickerShapesArea = document.querySelector('.sticker-shapes');
+
+			var STICKER_SHAPES = [
+				{
+					label: '123',
+					shape: 'circle',
+					static: true
+				},
+				{
+					label: '123',
+					level: 'primary',
+					shape: 'rounded',
+					static: true
+				},
+				{
+					label: '123',
+					level: 'success',
+					shape: 'square',
+					static: true
+				}
+			];
+
+			STICKER_SHAPES.forEach(function(sticker, index) {
+				var stickerElement = document.createElement('span');
+
+				stickerShapesArea.appendChild(stickerElement);
+
+				new metal.LexiconSticker({
+					element: stickerElement,
+					label: sticker.label,
+					level: sticker.level,
+					shape: sticker.shape,
+					static: sticker.static,
+				});
+			});
+
+
+
+		</script>
+	</body>
+</html>

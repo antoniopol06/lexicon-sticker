@@ -1,0 +1,20 @@
+{namespace LexiconSticker}
+
+/**
+ * This renders an icon element based on the lexicon icon definition
+ * found at http://liferay.github.io/lexicon/content/icons-lexicon/
+ *
+ * @param? elementClasses
+ * @param? label
+ * @param? level
+ * @param? outside
+ * @param? position
+ * @param? shape
+ * @param? size
+ * @param? static
+ */
+{template .render}
+ 	<span class="sticker sticker-{$level} sticker-{$shape}{$size ? ' sticker-' + $size : ''}{$static ? ' sticker-static' : ''}{$outside ? ' sticker-outside' : ''}{$position ? ' sticker-' + $position : ''}{$elementClasses ? ' ' + $elementClasses : ''}">
+		{$label}
+	</span>
+{/template}
